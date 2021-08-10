@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Voters List{% endblock %}
+
+{% block content %}
+<h1>The list of all voters</h1>
+<h2>Voters</h2>
+<ul>
+    {% for voter in voter %}
+    <li>
+       <!-- <a href="{% url 'detail' voter.user %}">
+            {{voter.name}}-->
+        {{voter.name}}
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

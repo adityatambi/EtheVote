@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block title %}Vote{% endblock %}
+
+{% block content %}
+
+<h1>Welcome {{name}}</h1>
+<p>
+   With username {{user}}<br>
+   Phone Number {{mobile}}<br>
+   You have Succesfully logged in.<br>
+
+</p>
+
+<h2>The List of Candidates</h2>
+<ul>
+   {% for i in names %}
+   <li>
+      {{i}}<br>
+   </li>
+   {% endfor %}
+</ul>
+<br>
+
+<ul>
+   {% for i,j in names.items %}
+   <li>
+       <form method='POST'>
+           {% csrf_token %}
+            {{form1.as_p}}
+            <button type="submit" name={{i}}> {{j}} </button>
+    </form>
+   </li>
+   {% endfor %}
+</ul>
+<br>
+
+<ul>
+   {% for i,j in names.items %}
+   <li>
+       <form method='POST'>
+           {% csrf_token %}
+           <div class="card">
+  <div class="card-header">
+    Featured
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">To vote for {{j}}</h5>
+    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    <button type="submit" name={{i}}> {{j}} </button>
+  </div>
+</div>
+    </form>
+       <br>
+       <br>
+   </li>
+   {% endfor %}
+</ul>
+
+
+
+<!--<form method='POST'>
+    {% csrf_token %}
+
+    <button type="submit" name="btnform1">Candidate1</button>
+    </form>
+<br>
+<form method = 'POST'>
+    <% csrf_token %}
+    {{form1.as_p}}
+    <button type="submit" name="btnform2">Candidate2</button>
+    </form> -->
+
+<br>
+
+
+To login click
+<a href="{% url 'login' %}">here</a>
+
+{% endblock %}

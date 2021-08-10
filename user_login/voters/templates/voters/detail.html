@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Voter{% endblock %}
+
+{% block content %}
+<h1>{{voter.name}}</h1>
+<h3>With the username {{voter.user}}</h3>
+<p>
+  The phone number associated with this user is<br>
+    <a href="tel:{{voter.mobile}}">{{voter.mobile}}</a>
+</p>
+To go back to the welcome page click
+    <a href="{% url 'welcome' %}">here</a>
+{% endblock %}
